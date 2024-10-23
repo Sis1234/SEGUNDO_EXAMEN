@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEGUNDO PARCIAL</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+
+</head>
+<body>
+    <div class="cuadro">
+        <h2>SEGUNDO PARCIAL TEM-742</h2> <br>
+        <h2>Nombre: Evelyn Judith Callisaya Saisa</h2>
+        <h2>Carnet: 6957045 LP</h2>
+    </div>
+    <h1>Gestion de productos</h1>
+    <a href="{{url_for('nuevo')}}"></a><button class="btnn">Nuevo Producto</button></a>
+    <br>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Fecha de vencimiento</th>
+            <th>Categoria</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {%for item in productos %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.cantidad}}</td>
+            <td>{{item.precio}}</td>
+            <td>{{item.fecha_vencimiento}}</td>
+            <td>{{item.categoria}}</td>
+            <td ><a href="{{url_for('editar',id=item.id)}}"><button class="btnn">Editar</button></a></td>
+            <td>
+                <form action="{{url_for('eliminar',id=item.id)}}" 
+                method="POST">
+                <input type="submit" value="eliminar">
+                </form>
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+    
+</body>
+</html>

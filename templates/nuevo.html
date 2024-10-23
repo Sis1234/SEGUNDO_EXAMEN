@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+
+</head>
+<body class="b">
+    <div><h1>Registro de producto</h1></div>
+    <form action="{{url_for('nuevo')}}" method="POST">
+        <div>
+        Nombre:  <input type="text" name="nombre" required><br>
+        Cantidad:  <input type="number" name="cantidad" required><br>
+        Precio:  <input type="number" name="precio" min="0" step="0.01" placeholder="0.00" required><br>
+        Fecha de vencimiento:  <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" required> <br>
+        <div>
+            Categoria: <br>
+            <input type="radio" id="bebidas" name="categoria" value="Bebidas" required>
+            <label for="bebidas">Bebidas</label> <br>
+            <input type="radio" id="Alimentos" name="categoria" value="Alimentos" required>
+            <label for="Alimentos">Alimentos</label><br>
+            <input type="radio" id="electrodomesticos" name="categoria" value="Electrodomesticos" required>
+            <label for="electrodomesticos">Electrodomesticos</label>
+        </div>
+        </div>
+    <input type="submit">
+
+    </form>
+</body>
+</html>
